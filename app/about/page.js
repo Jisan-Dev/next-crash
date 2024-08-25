@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function About() {
+  throw new Error('There was a huge error');
   return (
     <div className="text-center text-sm">
       About Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsum vero ducimus deserunt similique quidem corrupti explicabo nesciunt accusamus odit doloribus
