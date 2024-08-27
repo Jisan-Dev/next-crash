@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({ subsets: ['latin'], weight: '400' });
 
 export default function Blogs() {
   const blogs = [
@@ -16,7 +19,7 @@ export default function Blogs() {
   ];
 
   return (
-    <>
+    <div className={poppins.className}>
       <h1 className="mb-2 text-xl underline font-semibold text-indigo-600">Blogs</h1>
       <ul>
         {blogs.map((blog) => (
@@ -25,6 +28,6 @@ export default function Blogs() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
