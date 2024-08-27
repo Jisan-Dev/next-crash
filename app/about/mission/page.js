@@ -1,3 +1,4 @@
+import Button from '@/app/components/Button';
 import React from 'react';
 
 export default function Mission() {
@@ -11,6 +12,9 @@ export default function Mission() {
         dolore corporis distinctio saepe quidem recusandae! Nam ratione alias maiores tempora eveniet expedita quo nihil itaque neque vero. Quibusdam ipsa deleniti eos fuga culpa
         at magnam asperiores consectetur dolore molestias?
       </p>
+      <div className="flex items-center justify-center mt-2">
+        <Button />
+      </div>
     </div>
   );
 }
