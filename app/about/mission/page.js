@@ -3,6 +3,11 @@ import React from 'react';
 import thumb from '@/public/images/thumb.webp';
 import Image from 'next/image';
 
+export const metadata = {
+  title: 'Mission Page',
+  description: 'This is about the mission page',
+};
+
 export default function Mission() {
   return (
     <div>
