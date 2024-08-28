@@ -27,6 +27,9 @@ export default function Navbar() {
           <li className="border-r-2 pr-4">
             <Link href={'/dashboard'}>Dashboard</Link>
           </li>
+          <li className="border-r-2 pr-4">
+            <Link href={'/categories'}>Categories</Link>
+          </li>
           <li>
             <Link href={'/dashboard/overview'}>Dashboard-Overview</Link>
           </li>
