@@ -1,4 +1,5 @@
 import Comments from '@/app/components/Comments';
+import getAllPosts from '@/lib/getAllPosts';
 import getPost from '@/lib/getPost';
 import getPostComments from '@/lib/getPostComments';
 import React, { Suspense } from 'react';
@@ -33,4 +34,13 @@ export default async function PostPage({ params }) {
       </Suspense>
     </div>
   );
+}
+
+// to make this dynamic page(server render on demand with api call each time with different param id) to a SSG(Static Site Generation). so that the pages with given param ids below will be pre-rendered on the server no api call on demand. We can use this approach if we are sure that there will not be any new params in near future.
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+
+  return posts.map((post) => ({
+    id: post.id.toString(),
+  }));
 }
