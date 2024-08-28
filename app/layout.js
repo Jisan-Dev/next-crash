@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Link from 'next/link';
+import Navbar from './components/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,28 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="px-16 py-8  border-b">
-          <ul className="flex items-center gap-4">
-            <li className="border-r-2 pr-4">
-              <Link href={'/'}>Home</Link>
-            </li>
-            <li className="border-r-2 pr-4">
-              <Link href={'/about'}>About</Link>
-            </li>
-            <li className="border-r-2 pr-4">
-              <Link href={'/blogs'}>Blogs</Link>
-            </li>
-            <li className="border-r-2 pr-4">
-              <Link href={'/posts'}>posts</Link>
-            </li>
-            <li className="border-r-2 pr-4">
-              <Link href={'/dashboard'}>Dashboard</Link>
-            </li>
-            <li>
-              <Link href={'/dashboard/overview'}>Dashboard-Overview</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar />
         <div className="px-16 pt-8">{children}</div>
       </body>
     </html>
