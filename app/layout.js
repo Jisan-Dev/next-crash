@@ -24,8 +24,14 @@ export default function RootLayout({ children }) {
             <li className="border-r-2 pr-4">
               <Link href={'/blogs'}>Blogs</Link>
             </li>
-            <li>
+            <li className="border-r-2 pr-4">
               <Link href={'/posts'}>posts</Link>
+            </li>
+            <li className="border-r-2 pr-4">
+              <Link href={'/dashboard'}>Dashboard</Link>
+            </li>
+            <li>
+              <Link href={'/dashboard/overview'}>Dashboard-Overview</Link>
             </li>
           </ul>
         </nav>
