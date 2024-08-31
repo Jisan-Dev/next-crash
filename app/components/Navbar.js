@@ -42,8 +42,8 @@ export default function Navbar() {
     },
     {
       sn: 7,
-      title: 'Dashboard-Overview',
-      href: '/dashboard/overview',
+      title: 'User',
+      href: '/user',
     },
   ];
 
