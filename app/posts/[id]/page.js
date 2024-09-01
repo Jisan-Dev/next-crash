@@ -11,6 +11,7 @@ export async function generateMetadata({ params }) {
   return {
     title: post.title,
     description: post.body,
+    keywords: post.body.split(' '),
   };
 }
 

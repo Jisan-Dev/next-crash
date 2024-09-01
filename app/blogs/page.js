@@ -4,6 +4,12 @@ import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({ subsets: ['latin'], weight: '400' });
 
+export const metadata = {
+  title: 'Blogs',
+  description: 'This is the blogs page',
+  keywords: ['blogs', 'blogs page'],
+};
+
 export default function Blogs() {
   const blogs = [
     {
