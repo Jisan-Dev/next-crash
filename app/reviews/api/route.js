@@ -1,5 +1,5 @@
 export async function GET() {
-  return Response.json(reviews);
+  return Response.json(reviews, { headers: { 'Set-Cookie': 'token=$dark666token999' } });
 }
 
 export async function POST(request) {
