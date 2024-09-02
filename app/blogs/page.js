@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import { Poppins } from 'next/font/google';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
 const poppins = Poppins({ subsets: ['latin'], weight: '400' });
 
@@ -10,7 +12,10 @@ export const metadata = {
   keywords: ['blogs', 'blogs page'],
 };
 
-export default function Blogs() {
+export default async function Blogs() {
+  const session = await getServerSession(authOptions);
+  console.log({ session });
+
   const blogs = [
     {
       id: 1,
