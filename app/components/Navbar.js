@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import { signOut } from 'next-auth/react';
+import Image from 'next/image';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -71,9 +72,12 @@ export default function Navbar() {
             {session.status === 'loading' ? '....' : 'Login'}
           </button>
         ) : (
-          <button onClick={() => signOut()} className="px-5 py-2 rounded-md bg-indigo-600">
-            {session.status === 'loading' ? '....' : 'Logout'}
-          </button>
+          <div className="flex gap-4 justify-center items-center">
+            <button onClick={() => signOut()} className="px-5 py-2 rounded-md bg-indigo-600">
+              {session.status === 'loading' ? '....' : 'Logout'}
+            </button>
+            <div style={{ backgroundImage: `url(${session?.data?.user?.image})` }} className={`w-10 h-10 bg-cover bg-center rounded-full`}></div>
+          </div>
         )}
       </nav>
       {/* ) : null} */}

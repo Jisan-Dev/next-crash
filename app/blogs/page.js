@@ -14,7 +14,7 @@ export const metadata = {
 
 export default async function Blogs() {
   const session = await getServerSession(authOptions);
-  console.log({ session });
+  console.log(session);
 
   const blogs = [
     {
