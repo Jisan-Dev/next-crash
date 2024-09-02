@@ -1,4 +1,5 @@
 'use client';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
@@ -6,6 +7,8 @@ import React from 'react';
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
+  const session = useSession();
+  console.log(session);
 
   if (pathname.includes('dashboard')) return;
 
@@ -61,11 +64,15 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <button onClick={() => router.push('/blogs')} className="px-5 py-2 rounded-md bg-indigo-600">
-          Login
-        </button>
-      </nav>
 
+        {!session.data ? (
+          <button onClick={() => router.push('/api/auth/signin')} className="px-5 py-2 rounded-md bg-indigo-600">
+            {session.status === 'loading' ? '....' : 'Login'}
+          </button>
+        ) : (
+          <button className="px-5 py-2 rounded-md bg-indigo-600">{session.status === 'loading' ? '....' : 'Logout'}</button>
+        )}
+      </nav>
       {/* ) : null} */}
     </div>
   );
