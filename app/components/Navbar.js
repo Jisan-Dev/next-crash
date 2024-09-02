@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
+import { signOut } from 'next-auth/react';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -70,7 +71,9 @@ export default function Navbar() {
             {session.status === 'loading' ? '....' : 'Login'}
           </button>
         ) : (
-          <button className="px-5 py-2 rounded-md bg-indigo-600">{session.status === 'loading' ? '....' : 'Logout'}</button>
+          <button onClick={() => signOut()} className="px-5 py-2 rounded-md bg-indigo-600">
+            {session.status === 'loading' ? '....' : 'Logout'}
+          </button>
         )}
       </nav>
       {/* ) : null} */}
