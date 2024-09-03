@@ -47,7 +47,7 @@ export default function SignUp() {
               <div class="focus-within:border-b-gray-500 relative flex overflow-hidden border-b-2 transition">
                 <input
                   type="text"
-                  name="photo"
+                  name="image"
                   id="login-email"
                   class="w-full flex-1 appearance-none border-gray-300 bg-transparent px-4 py-2 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
                   placeholder="Photo url"
