@@ -2,6 +2,7 @@ import connectDB from '@/lib/connectDB';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
+import GitHubProvider from 'next-auth/providers/github';
 
 export const authOptions = {
   session: {
@@ -34,6 +35,10 @@ export const authOptions = {
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
     }),
+    GitHubProvider({
+      clientId: process.env.NEXT_PUBLIC_GITHUB_ID,
+      clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET,
+    }),
   ],
   callbacks: {
     async jwt({ token, account, user }) {
@@ -52,22 +57,22 @@ export const authOptions = {
 
 const handler = NextAuth(authOptions);
 
-const users = [
-  {
-    id: 1,
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    password: 'password123',
-    image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    email: 'jane.smith@example.com',
-    password: 'secret123',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  },
-  { id: 3, name: 'Alice Johnson', email: 'alice.johnson@example.com', password: 'qwerty123' },
-];
+// const users = [
+//   {
+//     id: 1,
+//     name: 'John Doe',
+//     email: 'john.doe@example.com',
+//     password: 'password123',
+//     image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+//   },
+//   {
+//     id: 2,
+//     name: 'Jane Smith',
+//     email: 'jane.smith@example.com',
+//     password: 'secret123',
+//     image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+//   },
+//   { id: 3, name: 'Alice Johnson', email: 'alice.johnson@example.com', password: 'qwerty123' },
+// ];
 
 export { handler as GET, handler as POST };
